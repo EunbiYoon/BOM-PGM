@@ -10,6 +10,7 @@ from email.mime.application import MIMEApplication
 from Bhtmltable import FL_html,TL_html,DR_html,FL_item,TL_item,DR_item
 from ADataDR import today_date
 
+title='[테네시 재료비 관리 Task] 5월 5주차 BOM과 실제 생산 투입 재료비 차이 분석'
 ################################## Send email ################################## 
 server = smtplib.SMTP('lgekrhqmh01.lge.com:25')
 server.ehlo()
@@ -20,26 +21,28 @@ msg=MIMEMultipart()
 
 # 수신자 발신자 지정
 msg['From']='eunbi1.yoon@lge.com'
-# msg['To']='iggeun.kwon@lge.com, incheol.kang@lge.com, sehee.aiello@lge.com, jacey.jung@lge.com, gilnam.lee@lge.com, steven.yang@lge.com, jajoon1.koo@lge.com, wolyong.ha@lge.com, dowan.han@lge.com'
-# msg['Cc']='ethan.son@lge.com, jongseop.kim@lge.com, richard.song@lge.com, minhyoung.sun@lge.com, kitae3.park@lge.com, tg.kim@lge.com'
+msg['To']='iggeun.kwon@lge.com, incheol.kang@lge.com, jacey.jung@lge.com, gilnam.lee@lge.com, steven.yang@lge.com, jajoon1.koo@lge.com, wolyong.ha@lge.com, dowan.han@lge.com'
+msg['Cc']='ethan.son@lge.com, jongseop.kim@lge.com, richard.song@lge.com, minhyoung.sun@lge.com, kitae3.park@lge.com, tg.kim@lge.com'
 msg['Bcc']='eunbi1.yoon@lge.com'
 
-msg.attach(MIMEText('<h4 style="font-family:sans-serif; font-weight:500">Dear all,<br/><br/>I would like to share this week cost review report and detailed informations are in below website.<br/>You can access website with Chrome or Edge in CloudPC or LG wifi for security purpose. <a href="http://10.225.2.85">http://10.225.2.85</a></h4>','html'))
+#title
+msg['Subject']=title
+msg.attach(MIMEText('<h4 style="font-family:Arial Narrow; font-weight:500">Dear All,<br/><br/>I would like to share this week bom comparison report and detailed informations are in below website.<br/>You can access website with Chrome or Edge in CloudPC or LG wifi for security purpose. <a href="http://10.225.2.85">http://10.225.2.85</a></h4>','html'))
 
 save_path='C:/Users/RnD Workstation/Documents/NPTGERP/'+today_date+'/'
 
 # graph file read
-with open(save_path+'FL_result.jpg', 'rb') as f:
+with open(save_path+'TL_result.png', 'rb') as f:
         img_data = f.read()
-image1 = MIMEImage(img_data, name=os.path.basename("FL"+today_date+'.jpg'))
+image1 = MIMEImage(img_data, name=os.path.basename("TL"+today_date+'.png'))
 
-with open(save_path+'TL_result.jpg', 'rb') as f:
+with open(save_path+'FL_result.png', 'rb') as f:
         img_data = f.read()
-image2 = MIMEImage(img_data, name=os.path.basename("TL"+today_date+'.jpg'))
+image2 = MIMEImage(img_data, name=os.path.basename("FL"+today_date+'.png'))
 
-with open(save_path+'DR_result.jpg', 'rb') as f:
+with open(save_path+'DR_result.png', 'rb') as f:
         img_data = f.read()
-image3 = MIMEImage(img_data, name=os.path.basename("DR_BPA_Entity"+today_date+'.jpg'))
+image3 = MIMEImage(img_data, name=os.path.basename("DR_BPA_Entity"+today_date+'.png'))
 
 
 
