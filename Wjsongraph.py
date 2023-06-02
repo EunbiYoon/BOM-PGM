@@ -6,7 +6,7 @@ from pprint import pprint
 from jsonmerge import merge
 from jsonmerge import Merger
 
-read_excel=pd.read_excel("C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx", sheet_name="F3P2CYUBW.ABWEUUS_result")
+read_excel=pd.read_excel("C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx", sheet_name="RV13D1AMAZU.ABWEUUS_result")
 read_excel.index=read_excel['Unnamed: 1']
 read_excel=read_excel.drop(['Unnamed: 1','Unnamed: 0'],axis=1)
 read_excel=read_excel.T

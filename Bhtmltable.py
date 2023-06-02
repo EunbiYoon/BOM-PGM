@@ -3,13 +3,13 @@ import numpy as np
 
 
 #####지난번에 했던 결과 소환
-FL_last_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0526/result_0526.xlsx', sheet_name="F3P2CYUBW.ABWEUUS_result")
-TL_last_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0526/result_0526.xlsx', sheet_name="T1889EFHUW.ABWEUUS_result")
-DR_last_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0526/result_0526.xlsx', sheet_name="RV13D1AMAZU.ABWEUUS_result")
+FL_last_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx', sheet_name="F3P2CYUBW.ABWEUUS_result")
+TL_last_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx', sheet_name="T1889EFHUW.ABWEUUS_result")
+DR_last_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx', sheet_name="RV13D1AMAZU.ABWEUUS_result")
 
-FL_item_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0526/result_0526.xlsx', sheet_name="F3P2CYUBW.ABWEUUS_worst item")
-TL_item_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0526/result_0526.xlsx', sheet_name="T1889EFHUW.ABWEUUS_worst item")
-DR_item_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0526/result_0526.xlsx', sheet_name="RV13D1AMAZU.ABWEUUS_worst item")
+FL_item_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx', sheet_name="F3P2CYUBW.ABWEUUS_worst item")
+TL_item_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx', sheet_name="T1889EFHUW.ABWEUUS_worst item")
+DR_item_result=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/0602/result_0602.xlsx', sheet_name="RV13D1AMAZU.ABWEUUS_worst item")
 
 ######데이터 정리
 #index
@@ -60,7 +60,7 @@ FL_html=FL_html.replace('<th style="color:navy;background-color:#EFE6FF; border:
 
 #merge cell - column
 FL_html=FL_html.replace('<th style="color:navy;background-color:#EFE6FF; border:1px solid grey; border-collapse: collapse;">Unnamed: 1</th>','')
-FL_html=FL_html.replace('<th style="color:navy;background-color:#EFE6FF; border:1px solid grey; border-collapse: collapse;"></th>','<th colspan="2" style="color:navy; background-color:#EFE6FF">Index</th>')
+FL_html=FL_html.replace('<th style="color:navy;background-color:#EFE6FF; border:1px solid grey; border-collapse: collapse;"></th>','<th colspan="2" style="color:navy; background-color:#EFE6FF; border:1px solid grey">Index</th>')
 
 #merge cell - row1
 FL_html=FL_html.replace('<th style="color:navy;background-color:#EFE6FF; border:1px solid grey; border-collapse: collapse;">NaN</th>','')
@@ -322,3 +322,20 @@ DR_item=DR_item.replace('<td style="background-color:white; border:1px solid gre
 
 #index 0 delete
 DR_item=DR_item.replace('<th style="color:navy;background-color:#ECFFAF; border:1px solid grey; border-collapse: collapse;">0</th>','<th style="color:navy;background-color:#ECFFAF; border:1px solid grey; border-collapse: collapse;"></th>')
+
+#save this templates to use in website
+file_path="C:/Users/RnD Workstation/Documents/NPTGERP/0602/"
+#save trend table
+with open(file_path+"FL_trend.html","w") as file:
+    file.write(FL_html)
+with open(file_path+"TL_trend.html","w") as file:
+    file.write(TL_html)
+with open(file_path+"DR_trend.html","w") as file:
+    file.write(DR_html)
+
+with open(file_path+"FL_item.html","w") as file:
+    file.write(FL_item)
+with open(file_path+"TL_item.html","w") as file:
+    file.write(TL_item)
+with open(file_path+"DR_item.html","w") as file:
+    file.write(DR_item)
