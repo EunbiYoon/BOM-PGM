@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-today_date=0602
+today_date="0602"
 
 ###########################GERP###############################
 gerp=pd.read_excel('C:/Users/RnD Workstation/Documents/NPTGERP/'+str(today_date)+'/DR/gerp.xlsx')

@@ -26,18 +26,18 @@ msg['Bcc']='eunbi1.yoon@lge.com'
 
 msg.attach(MIMEText('<h4 style="font-family:sans-serif; font-weight:500">Dear all,<br/><br/>I would like to share this week cost review report and detailed informations are in below website.<br/>You can access website with Chrome or Edge in CloudPC or LG wifi for security purpose. <a href="http://10.225.2.85">http://10.225.2.85</a></h4>','html'))
 
-save_path='C:/Users/RnD Workstation/Documents/CostReview/'+today_date+'/'
+save_path='C:/Users/RnD Workstation/Documents/NPTGERP/'+today_date+'/'
 
 # graph file read
-with open(save_path+'FL.JPG', 'rb') as f:
+with open(save_path+'FL_result.jpg', 'rb') as f:
         img_data = f.read()
 image1 = MIMEImage(img_data, name=os.path.basename("FL"+today_date+'.jpg'))
 
-with open(save_path+'TL.JPG', 'rb') as f:
+with open(save_path+'TL_result.jpg', 'rb') as f:
         img_data = f.read()
 image2 = MIMEImage(img_data, name=os.path.basename("TL"+today_date+'.jpg'))
 
-with open(save_path+'DR.JPG', 'rb') as f:
+with open(save_path+'DR_result.jpg', 'rb') as f:
         img_data = f.read()
 image3 = MIMEImage(img_data, name=os.path.basename("DR_BPA_Entity"+today_date+'.jpg'))
 
